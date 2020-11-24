@@ -42,11 +42,11 @@ delta_CH4 <- -0.012
 
 ### Estimating $\delta^{13}C$ of CO2
 
-The same paper by Etiope et al. (2011) has reported $\delta^{13}C_{CO_2}$ values from gas generated from one of the seeps. However, our study reported $\delta^{13}C_{lipid}$ to inference the residual DIC available to methanogens may be extremely enriched. Here we'll use a sequence of values to see what values may be availbale and if they all fit into predicting energetic potentials. We're assuming the DIC values we are estimating are in the form of dissovled $CO_2$ for use by methanogens in our system.
+The same paper by Etiope et al. (2011) has reported $\delta^{13}C_{CO_2}$ values from gas generated from one of the seeps. However, our study reported $\delta^{13}C_{lipid}$ to inference the residual DIC available to methanogens may be extremely enriched. Here we'll use a sequence of values to see what values may be representative and if they all fit into predicting energetic potentials. We're assuming the DIC values we are estimating are in the form of dissovled $CO_2$ for use by methanogens in our system.
 
 ```{r}
-delta_CO2_reported <- seq(-0.018, -0.015, by = 0.001)
-delta_CO2_est <- seq(-0.014, 0.012, by = 0.001) #Predicting values higher than the reported based off of the lipid-isotope values from Zwicker et al. (2018)
+delta_CO2_reported <- seq(-0.018, -0.015, by = 0.001) #Values recorded from the head of a gas seep (Etiope et al. 2011)
+delta_CO2_est <- seq(-0.014, 0.012, by = 0.001) #Predicting values higher than reported based off of the lipid-isotope values from Zwicker et al. (2018)
 ```
 
 ### Calculating the Fractionation Values for our methanogens
@@ -58,10 +58,10 @@ $$
 ```{r}
 #Alpha values for reported and estimated conditions
 alpha_CO2_CH4_reported <- tibble( 
-  alpha_CO2_CH4 = #YOUR ANSWER,
+  #alpha_CO2_CH4 = #YOUR ANSWER,
   Scenario = "Reported")
 alpha_CO2_CH4_est <- tibble(
-  alpha_CO2_CH4 = #YOUR ANSWER),
+  #alpha_CO2_CH4 = #YOUR ANSWER),
   Scenario = "Estimated")
 
 #Combine both for downstream use
@@ -110,7 +110,7 @@ alpha_CO2_CH4_df <- mutate(alpha_CO2_CH4_df,
   A = 0.0919,
   x_c = 11.8376,
   w = 78.0067,
-  delta_G = #YOUR ANSWER     #Need to account for ∆G which is negative when plotting the curve (Would your ∆G plot on the same axis scale as Penning et al. ?)
+  #delta_G = #YOUR ANSWER     #Need to account for ∆G which is negative when plotting the curve (Would your ∆G plot on the same axis scale as Penning et al. ?)
 ) 
 ```
 
@@ -147,7 +147,7 @@ gauss_line_df3 <- tibble(
 
 ```{r}
 p1 <- ggplot() +
-  geom_point(#YOUR ANSWER) +
+  #geom_point(#YOUR ANSWER) +
   xlim(-250, 0) +
   ylim(1.00, 1.10) +
   geom_line(data = reg_line_df, aes(x = reg_line_equation, y = reg_line_values)) +
@@ -159,7 +159,7 @@ p1 <- ggplot() +
 p1
 ```
 
-**What might those values represent**
+**What might those values represent? If we assume this relationship true, what would this plot suggest?**
 
 ### Evaluating the $\alpha - ∆G$ relationship based on modeled values
 
@@ -179,12 +179,12 @@ alpha_CO2_CH4_df2 <- mutate(alpha_CO2_CH4_df,
   A = 0.0919,
   x_c = 11.8376,
   w = 78.0067,
-  delta_G = #YOUR ANSWER
+  #delta_G = #YOUR ANSWER
 ) 
 
 p2 <- ggplot() +
-  geom_point(#YOUR ANSWER) +
-  geom_point(#YOUR ANSWER) +
+  #geom_point(#YOUR ANSWER) +
+  #geom_point(#YOUR ANSWER) +
   xlim(-250, 0) +
   ylim(1.00, 1.10) +
   geom_line(data = reg_line_df, aes(x = reg_line_equation, y = reg_line_values)) +
